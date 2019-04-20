@@ -4,7 +4,11 @@ from django.http import HttpResponse
 from django.contrib.auth import logout,authenticate
 from django.contrib.auth import login as user_login
 from django.contrib.auth.models import User
-
+from datetime import timedelta
+import datetime
+from reste.models import *
+from django.core.mail import send_mail
+from django.conf import settings
 
 def home(request):
 	return render (request,"home.html")
@@ -67,6 +71,19 @@ def oldremainders(request):
 
 
 def currentremainders(request):
-	return render(request,"curentremainders.html")
+
+	startdate = datetime.date.today()
+	enddate = startdate + timedelta(days=999999)
+	print(enddate)
+	remind = Remainders.objects.filter(date__range=[startdate, enddate])
+	
+	return render(request,"curentremainders.html",{"upcoming":remind})
 
 # Create your views here.
+def email(request):
+    subject = 'A Remainder Mail'
+    message = ' Your payment is approaching '
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = ['receiver@gmail.com',]
+    send_mail( subject, message, email_from, recipient_list )
+    return redirect('redirect to a new page')

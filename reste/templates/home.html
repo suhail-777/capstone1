@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="#">Navbar</a><img src="{% static'trevoge\img\back.jpg'%}">
+			<a class="navbar-brand" href="#">Navbar</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 			</button>
@@ -35,8 +35,8 @@
 			</nav>
 			<div class="container">
 				<h1 style="text-align: center;color: red;font-family: Alfa Slab One"> TREVOGE </h1>
+				<img src="{% static 'img/back.jpg'%}" style="max-width:500px;max-height:400px;";>	
 				<br><br>
-				<img src="images/back.jpeg" alt="">
 				<h2 style="text-align: center;">Login 🔑</h2>
 				<br>
 				<form action="/login/" method="POST" style="text-align: left;">

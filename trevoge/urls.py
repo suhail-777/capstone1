@@ -25,5 +25,5 @@ urlpatterns = [
 	path('dashboard/',dashboard),
 	path('addremainders/',addremainders),
 	path('oldremainders/', oldremainders),
-	path('currentremainders/',currentremainders)
+	path('currentremainders/',currentremainders),
 ]
