@@ -1,0 +1,78 @@
+https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+
+#thanos{
+	width: 280px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: red;
+}
+
+#thanos h2{
+
+	float: left;
+	font-size:40px;
+	border-bottom: 6px solid #007bff;
+	margin-bottom: 50px;
+	padding: 13px;
+
+	
+
+input{
+
+	width: 100%
+	overflow:hidden;
+	font-size: 20px;
+	padding: 8px 0;
+	margin: 8px 0;
+	border-bottom:1px solid  #9b59b6;
+
+}
+
+#loki input{
+
+	border: none;
+	outline: none;
+	background: none;
+	color: white;
+	font-size: 18px;
+	width:80px;
+	float: left;
+	margin: 10px;
+
+}
+
+#hulk{
+	;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: url('img/dp.jpg') no-repeat;
+	background-size: cover;
+}
+
+#widow{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: url('img/dp.jpg') no-repeat;
+	background-size: cover;
+}
+
+.navbar{
+	background-color: #000
+
+}
+
+#vision{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: url('img/dp.jpg') no-repeat;
+	background-size: cover;
+
+}

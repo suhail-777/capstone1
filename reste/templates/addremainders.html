@@ -6,24 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 	
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="static/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+		<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">	
 		<title> </title>
 	</head>
-	<body>
+	<body id="vision">
+		<div>
+			<h1 style="text-align: center;color:white;font-family: Alfa Slab One;font-size: 30px;"> TREVOGE </h1>
+		</div>
+		<br><br>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<a class="navbar-brand" href="#">Navbar</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							More
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="#"> About </a>
+							<a class="dropdown-item" href="#">Social Media Account</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Contact Us</a>
+						</div>
+					</ul>
+				</div>
+			</nav>
+			<br><br>
 		<div class="container">
-			<h2> Remind ME!!!</h2>
+			<h2 style="
+	float: center;
+	font-size:40px;
+	border-bottom: 3px solid #007bff;
+	margin-bottom: 30px;
+	padding: 13px;">
+
+	 Remind ME!!!</h2>
 			<br>
-			<form action="/addremainders/" method="POST">
+			<form action="/addremainders/" method="POST" style="
+	border: none;
+	outline: none;
+	background: none;
+	color: white;
+	font-size: 18px;
+	width:80px;
+	float: left;
+	margin: 10px;">
 				{% csrf_token %}
-				<div>
-					<input  type="text" placeholder="NAME"  name="NAME">
+				<div style="font-family: 'Slabo 27px', serif;">
+					<input  type="text" placeholder="NAME"  name="NAME" style="font-family: 'Slabo 27px', serif;">
+					<br><br>
+
 					<div>
-						<input type="text" placeholder="DESCRIPTION"   name="DESCRIPTION">
+						<input type="text" placeholder="DESCRIPTION"   name="DESCRIPTION" style="font-family: 'Slabo 27px', serif;">
 					</div>
-					</div>
+					<br><br>
 					<div>
-						<input type="date" placeholder="DATE" name="DATE">
+						<input type="date" placeholder="DATE" name="DATE" style="font-family:'Slabo 27px', serif; ">
 					</div>
+					<br><br>
 					<div class="form-group">
 						<input class="btn btn-md btn-success" type="submit">
 					</div>

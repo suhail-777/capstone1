@@ -9,6 +9,10 @@ import datetime
 from reste.models import *
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth.models import User
+
+
+
 
 def home(request):
 	return render (request,"home.html")
@@ -63,7 +67,19 @@ def dashboard(request):
 	return render(request,"dashboard.html")
 
 def addremainders(request):
-	return render(request,"addremainders.html")
+	if request.method == "POST":
+		name = request.POST['NAME']
+		description = request.POST['DESCRIPTION']
+		date = request.POST['DATE']
+		remainder = Remainders.objects.create(name=name,
+			description=description,
+			date=date,
+			author=request.user
+			)
+		return redirect('/dashboard/')
+	else:
+		
+		return render(request,"addremainders.html")
 
 def oldremainders(request):
 	return render(request,"oldremainders.html")
@@ -72,12 +88,14 @@ def oldremainders(request):
 
 def currentremainders(request):
 
-	startdate = datetime.date.today()
-	enddate = startdate + timedelta(days=999999)
-	print(enddate)
-	remind = Remainders.objects.filter(date__range=[startdate, enddate])
+	today = datetime.date.today()
+	print(today)
+	# enddate = startdate + timedelta(days=999999)
+	# print(enddate)
+	user = User.objects.get(username=request.user)
+	reminders = Remainders.objects.filter(author=user)
 	
-	return render(request,"curentremainders.html",{"upcoming":remind})
+	return render(request,"currentremainders.html",{"reminders":reminders, "today":today})
 
 # Create your views here.
 def email(request):

@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
+	{% load static %}
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<title> </title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="static/style.css">
 		<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
+		<link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div>
+			<h1 style="text-align: center;color:white;font-family: Alfa Slab One;font-size: 30px;"> TREVOGE </h1>
+		</div>
+		<br><br>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<a class="navbar-brand" href="#">Navbar</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -33,48 +39,56 @@
 					</ul>
 				</div>
 			</nav>
-			<div class="container">
-				<h1 style="text-align: center;color: red;font-family: Alfa Slab One"> TREVOGE </h1>
-				<img src="{% static 'img/back.jpg'%}" style="max-width:500px;max-height:400px;";>	
+			<br><br>
+			<div class ="container" id="thanos">
 				<br><br>
-				<h2 style="text-align: center;">Login 🔑</h2>
+				<br><br>
 				<br>
-				<form action="/login/" method="POST" style="text-align: left;">
+				<h2 style="text-align: center;">Login 🔑</h2>
+				<br><br>
+
+				<form action="/login/" method="POST" style="text-align: center;">
 					{% csrf_token %}
-					<div class="form-group" style="text-align: center;">
-						<input type="text" placeholder="Username" name="username">
-						<div class="form-group">
-							<input type="text" placeholder="Password" name="password">
-							<div class="form-group">
-								<input class="btn btn-md btn-success" type="submit">
-							</div>
-						</div>
+
+					<div class="textbox" style="text-align: center;">
+						<input type="text" placeholder="Username" name="username" style="text-align: center;">
+						<i class="far fa-user"></i>
 					</div>
-				</div>
-			</form>
-			<h2 style="text-align: center;"> signup </h2>
-			<br>
-			<form action="/signup/" method="POST" style="text-align: center;">
-				{% csrf_token %}
-				<div class="form-group">
-					<input type="text" placeholder="Fullname" name="fullname">
-					<div class="form-group">
-						<input type="text" placeholder="Email" name="email">
-						<div class="form-group">
-							<input type="text" placeholder="Username" name="username">
-							<div class="form-group">
-								<input type="text" placeholder="Password" name="password" >
-								<div class="form-group">
-									<input class="btn btn-md btn-success" type="submit">
-								</div>
-							</div>
-						</div>
+					<div class="textbox">
+						<input type="text" placeholder="Password" name="password" style="text-align: center;">
+						<i class="fas fa-lock"></i>
 					</div>
-				</div>
-			</form>
-		</div>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	</body>
-</html>
+					<div>
+						<input class="btn btn-md btn-success" type="submit">
+					</div>
+				</form>
+				<h2 style="text-align: center;"> signup </h2>
+				<br>
+				<form action="/signup/" method="POST" style="text-align:center;">
+					{% csrf_token %}
+					<div class="textbox">
+						<input type="text" placeholder="Fullname" name="fullname" style="text-align: center;">
+						<i class="fas fa-signature"></i>
+					</div>
+					<div class="textbox">
+						<input type="text" placeholder="Email" name="email" style="text-align:center;">
+						<i class="far fa-envelope"></i>
+					</div>
+					<div class="textbox">
+						<input type="text" placeholder="Username" name="username" style="text-align: center;">
+						<i class="far fa-user"></i>
+					</div>
+					<div class="textbox">
+						<input type="text" placeholder="Password" name="password" style="text-align: center;">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class>
+						<input class="btn btn-md btn-success" type="submit">
+					</div>
+				</form>
+			</div>
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rssRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		</body>
+	</html>
