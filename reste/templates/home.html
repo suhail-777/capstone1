@@ -45,11 +45,9 @@
 				<br><br>
 				<br>
 				<h2 style="text-align: center;">Login 🔑</h2>
-				<br><br>
-
+				
 				<form action="/login/" method="POST" style="text-align: center;">
 					{% csrf_token %}
-
 					<div class="textbox" style="text-align: center;">
 						<input type="text" placeholder="Username" name="username" style="text-align: center;">
 						<i class="far fa-user"></i>
@@ -62,6 +60,7 @@
 						<input class="btn btn-md btn-success" type="submit">
 					</div>
 				</form>
+				<hr>
 				<h2 style="text-align: center;"> signup </h2>
 				<br>
 				<form action="/signup/" method="POST" style="text-align:center;">
