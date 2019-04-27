@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.template import loader
 from django.http import HttpResponse
-from django.contrib.auth import logout,authenticate
+from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth import login as user_login
 from django.contrib.auth.models import User
 from datetime import timedelta
@@ -10,16 +10,17 @@ from reste.models import *
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
 
 
 
 
 def home(request):
 	return render (request,"home.html")
-def login(request):
 
-	if not request.user.is_authenticated:
-		return redirect("/login/")
+
+
 def signin(request):
 	if request.method == "POST":
 		username = request.POST.get('username', None)	
@@ -29,7 +30,7 @@ def signin(request):
 		print(user)
 		if user is not None:
 			print("Im in")
-			user_login(request, user)
+			login(request,user)
 			return redirect("/dashboard/")
 	return render(request, "signin.html")
 
@@ -59,13 +60,18 @@ def signup(request):
 
 	return render(request, "signup.html")
 
+
+@login_required(login_url='/login/')
 def signout(request):
 	logout(request)
 	return redirect("/")
 
+
+@login_required(login_url='/login/')
 def dashboard(request):
 	return render(request,"dashboard.html")
 
+@login_required(login_url='/login/')
 def addremainders(request):
 	if request.method == "POST":
 		name = request.POST['NAME']
@@ -76,32 +82,35 @@ def addremainders(request):
 			date=date,
 			author=request.user
 			)
+		email(request,date)
 		return redirect('/dashboard/')
 	else:
 		
 		return render(request,"addremainders.html")
 
+
+@login_required(login_url='/login/')
 def oldremainders(request):
 	return render(request,"oldremainders.html")
 
 
-
+@login_required(login_url='/login/')
 def currentremainders(request):
 
 	today = datetime.date.today()
-	print(today)
-	# enddate = startdate + timedelta(days=999999)
-	# print(enddate)
 	user = User.objects.get(username=request.user)
 	reminders = Remainders.objects.filter(author=user)
 	
 	return render(request,"currentremainders.html",{"reminders":reminders, "today":today})
 
 # Create your views here.
-def email(request):
+
+
+@login_required(login_url='/login')
+def email(request,date):
     subject = 'A Remainder Mail'
-    message = ' Your payment is approaching '
+    message = f'Your remainder is set to {date}'
     email_from = settings.EMAIL_HOST_USER
-    recipient_list = ['receiver@gmail.com',]
+    recipient_list = [request.user.email]
     send_mail( subject, message, email_from, recipient_list )
-    return redirect('redirect to a new page')
+    return 
